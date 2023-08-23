@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image-Resizer</title>
+    <style>
+        body{
+            background-color: rgba(32, 30, 30, 0.874);
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: center;
+            margin: auto;
+            margin-top: 100px;
+            width: 50%;
+        }
+        input{
+            margin: 10px;
+        }
+        #submit{
+            background-color: yellow;
+            /* color: white; */
+            border: none;
+            border-radius: 5px;
+            padding: 14px 0 14px 0;
+            cursor: pointer;
+            /* font-size: large; */
+            width: 100%;
+            font-weight: bold;
+        }
+        #file{
+            display: none;
+        }
+    #file-label{
+        background-color: red;
+        color: white;
+        padding: 18px 0 18px 0;
+        width: 100%;
+        border-radius: 5px;
+        text-align: center;
+        font-size: larger;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bolder;
+    }
+    </style>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <!-- <input type="file" name="image"> -->
+        <label for="file" id="file-label">Upload Image</label>
+        <input class="file-input" id="file" type="file" name="image">
+        <!-- <input type="file" id="file-input" style="background-color: yellow; color: #333; border: none; border-radius: 5px; padding: 15px; cursor: pointer;"> -->
+        <div id="custom">
+        <input type="number" name="length" placeholder="Enter Length">
+        <input type="number" name="width" placeholder="Enter Width">
+        <select name="format" id="format">
+            <option value="jpeg">JPEG</option>
+            <option value="png">PNG</option>
+            <option value="avif">AVIF</option>
+            <option value="jpg">JPG</option>
+            <option value="svg">SVG</option>
+            <option value="gif">GIF</option>
+        </select>
+    </div>
+        <button type="submit" value="Download" id="submit">Download</button>
+    </form>      
+    <% if (message != ''){ %>
+        <h3 style="color:yellow; text-align: center; margin: 40px;"><%= message %></h3>
+    <% } %>
+</body>
+</html>
